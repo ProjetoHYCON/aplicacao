@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.com.scua</groupId>
+	<artifactId>hibernate-tools</artifactId>
+	<packaging>jar</packaging>
+	<name>:: Gerador de beans ::</name>
+	<version>1.0</version>	
+	<properties>
+		<springframework.version>2.5.6</springframework.version>
+		<springsecurity.version>2.0.4</springsecurity.version>
+	</properties>
+	<build>
+		<finalName>hibernate-tools</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+			   <groupId>org.apache.maven.plugins</groupId>
+			   <artifactId>maven-eclipse-plugin</artifactId>
+			   <version>2.9</version>
+			   <configuration>
+				  <sourceIncludes>
+					  <sourceInclude>*</sourceInclude>
+				  </sourceIncludes>
+			   </configuration>
+		   </plugin>
+			<!-- <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>br.com.scua.report.Exec</mainClass>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin> -->
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/lib</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+		<dependencies>	
+		<!-- Jpa -->
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>3.2.1.ga</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.transaction</groupId>
+					<artifactId>jta</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<!-- Drivers jdbc -->
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>sqljdbc</artifactId>
+			<version>4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>ojdbc5</groupId>
+			<artifactId>ojdbc5</artifactId>
+			<version>11.1.0.7.0-Production</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+		</dependency>           
+	</dependencies>
+	<repositories>
+		<repository>
+			<id>neogrid</id>
+			<url>http://manguinhos.mercador.local:8888/archiva/repository/internal</url>
+		</repository>
+	</repositories>
+</project>

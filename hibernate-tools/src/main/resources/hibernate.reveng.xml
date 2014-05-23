@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<type-mapping>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="INTEGER" hibernate-type="java.lang.Integer"
+			not-null="false">
+		</sql-type>
+		<sql-type jdbc-type="TIMESTAMP" hibernate-type="timestamp"
+			length="23" not-null="true">
+		</sql-type>
+	</type-mapping>
+	<table-filter match-catalog="gau_security" match-schema="dbo"
+		match-name="core_usuario" />
+	<table-filter match-catalog="gau_security" match-schema="dbo"
+		match-name="sec_alteracao_acesso" />
+	<table-filter match-catalog="gau_security" match-schema="dbo"
+		match-name="sec_auditoria_revisao_acesso" />
+	<table-filter match-catalog="gau_security" match-schema="dbo"
+		match-name="sec_acesso_regra_secundaria" />
+	<table-filter match-catalog="gau_security" match-schema="dbo"
+		match-name="sec_revisao_periodo" />
+	<table-filter match-catalog="gau_security" match-schema="dbo"
+		match-name="sec_status_requisicao" />
+	<table-filter match-catalog="gau_security" match-schema="dbo"
+		match-name="sec_requisicao_acesso" />
+	<table-filter match-catalog="gau_security" match-schema="dbo"
+		match-name="sec_objeto" />
+	<table catalog="gau_security" schema="dbo"
+		name="sec_requisicao_acesso">
+		<column name="cod_requisicao_acesso"></column>
+		<column name="cod_chamado"></column>
+		<column name="cod_regra_secundaria"></column>
+		<column name="cod_objeto"></column>
+		<column name="cod_aprovador"></column>
+		<column name="dat_requisicao"></column>
+		<column name="cod_status_aprovacao"></column>
+		<column name="dat_aprovacao"></column>
+	</table>
+	<table catalog="gau_security" schema="dbo" name="sec_objeto">
+		<column name="cod_objeto"></column>
+		<column name="cod_categoria_objeto"></column>
+		<column name="cod_status_objeto"></column>
+		<column name="cod_tipo_objeto"></column>
+		<column name="txt_login"></column>
+		<column name="nom_nome"></column>
+		<column name="txt_comentario"></column>
+	</table>
+	<table catalog="gau_security" schema="dbo"
+		name="sec_alteracao_acesso">
+		<column name="cod_alteracao_acesso"></column>
+		<column name="cod_objeto"></column>
+		<column name="cod_solicitante"></column>
+		<column name="dat_alteracao"></column>
+		<column name="ind_processado"></column>
+	</table>
+	<table catalog="gau_security" schema="dbo"
+		name="sec_revisao_periodo">
+		<column name="cod_revisao_periodo"></column>
+		<column name="nom_revisao_periodo"></column>
+		<column name="dat_inicial"></column>
+		<column name="dat_final"></column>
+		<column name="qtd_dias_extensao"></column>
+	</table>
+	<table catalog="gau_security" schema="dbo"
+		name="sec_acesso_regra_secundaria">
+		<column name="cod_alteracao_acesso"></column>
+		<column name="cod_regra_secundaria"></column>
+		<column name="cod_tipo_associacao"></column>
+	</table>
+	<table catalog="gau_security" schema="dbo"
+		name="sec_auditoria_revisao_acesso">
+		<column name="cod_auditoria_revisao_acesso"></column>
+		<column name="cod_revisao_periodo"></column>
+		<column name="cod_objeto_revisado"></column>
+		<column name="cod_usuario_revisor"></column>
+		<column name="dat_revisao"></column>
+	</table>
+	<table catalog="gau_security" schema="dbo"
+		name="sec_status_requisicao">
+		<column name="cod_status_requisicao"></column>
+		<column name="nom_status_requisicao"></column>
+	</table>
+	<table catalog="gau_security" schema="dbo" name="core_usuario">
+		<column name="cod_usuario"></column>
+		<column name="nom_usuario"></column>
+		<column name="cod_usuario_superior"></column>
+		<column name="txt_login"></column>
+		<column name="txt_senha"></column>
+		<column name="txt_email"></column>
+		<column name="ind_apagado"></column>
+		<column name="num_tempo_limite"></column>
+		<column name="dat_inclusao"></column>
+		<column name="dat_alt_senha"></column>
+		<column name="val_hora"></column>
+		<column name="num_login_invalido"></column>
+		<column name="cod_centro_custo"></column>
+		<column name="cod_departamento"></column>
+		<column name="cod_cargo"></column>
+		<column name="dat_nascimento"></column>
+		<column name="cod_lingua"></column>
+		<column name="cod_timezone"></column>
+		<column name="ind_disponivel"></column>
+		<column name="cod_empresa"></column>
+		<column name="txt_iniciais"></column>
+		<column name="ind_vip"></column>
+		<column name="txt_generico_1"></column>
+		<column name="txt_ident_2"></column>
+		<column name="txt_ident_1"></column>
+		<column name="cod_tipo_usuario"></column>
+		<column name="ultimo_login"></column>
+		<column name="txt_bip"></column>
+		<column name="txt_sms"></column>
+		<column name="recebe_email"></column>
+		<column name="txt_sms_ddd"></column>
+		<column name="txt_sms_numero"></column>
+		<column name="txt_netbios_name"></column>
+	</table>
+</hibernate-reverse-engineering>
